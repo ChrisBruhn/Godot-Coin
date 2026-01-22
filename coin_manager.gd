@@ -4,7 +4,6 @@ extends Node2D
 @export var respawn_time := 1.0
 @export var respawn_randomly := true
 @export var area_size := Vector2(500, 300)
-var score = 0
 #@export var game_manager: Node  # træk GameManager ind i Inspector
 
 
@@ -40,12 +39,11 @@ func _on_coin_collected(_coin):
 	# Respawn en ny mønt efter et stykke tid
 	#print("Coin collected: ", coin.name)
 	#GameManager.addPoint()
-	addPoint()
+	
+#Lav funktionen addPoint() som skal kaldes herfra. Funktionen skal inkrementere værdien af variablen score. 
+#Herefter skal den udskrive værien af score til consollen.
+# Husk at deklarere variablen, score og initier den med værdien 0.
+	#addPoint()
 	await get_tree().create_timer(respawn_time).timeout
 	spawn_coin()
 	
-
-
-func addPoint():
-	score += 1
-	print(score)
